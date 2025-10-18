@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Adicionar Novo Pet</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#B76E2D",
+                        "background-light": "#FFF1E2",
+                        "background-dark": "#211811",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-white">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="flex items-center p-4 pb-2 justify-between bg-background-light dark:bg-background-dark">
+<button class="flex items-center justify-center size-12 shrink-0">
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-200">arrow_back</span>
+</button>
+<h2 class="text-xl font-bold leading-tight tracking-[-0.015em] flex-1 text-center text-gray-900 dark:text-white">Adicionar Novo Pet</h2>
+<div class="w-12"></div>
+</div>
+<div class="flex flex-col items-center p-4 space-y-6">
+<div class="relative">
+<div class="bg-white dark:bg-gray-800/50 border-2 border-dashed border-gray-300 dark:border-gray-600 text-gray-400 dark:text-gray-500 rounded-full flex items-center justify-center size-32" data-alt="Placeholder for pet photo">
+<span class="material-symbols-outlined text-5xl">add_a_photo</span>
+</div>
+<button class="absolute bottom-0 right-0 bg-primary text-white rounded-full p-2 shadow-md">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+<div class="w-full max-w-md space-y-4">
+<label class="flex flex-col">
+<p class="text-base font-medium pb-2 text-gray-800 dark:text-gray-300">Nome do Pet <span class="text-primary">*</span></p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800/50 h-14 placeholder:text-gray-500 dark:placeholder:text-gray-400 p-4 text-base font-normal" placeholder="Digite o nome do seu pet" value=""/>
+</label>
+<div class="grid grid-cols-2 gap-4">
+<label class="flex flex-col">
+<p class="text-base font-medium pb-2 text-gray-800 dark:text-gray-300">Espécie <span class="text-primary">*</span></p>
+<select class="form-select flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800/50 h-14 placeholder:text-gray-500 dark:placeholder:text-gray-400 p-4 text-base font-normal">
+<option value="">Selecione</option>
+<option value="cao">Cão</option>
+<option value="gato">Gato</option>
+<option value="passaro">Pássaro</option>
+<option value="outro">Outro</option>
+</select>
+</label>
+<label class="flex flex-col">
+<p class="text-base font-medium pb-2 text-gray-800 dark:text-gray-300">Raça <span class="text-primary">*</span></p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800/50 h-14 placeholder:text-gray-500 dark:placeholder:text-gray-400 p-4 text-base font-normal" placeholder="Ex: Vira-lata" value=""/>
+</label>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<label class="flex flex-col">
+<p class="text-base font-medium pb-2 text-gray-800 dark:text-gray-300">Idade (anos) <span class="text-primary">*</span></p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800/50 h-14 placeholder:text-gray-500 dark:placeholder:text-gray-400 p-4 text-base font-normal" placeholder="0" type="number" value=""/>
+</label>
+<div class="flex flex-col">
+<p class="text-base font-medium pb-2 text-gray-800 dark:text-gray-300">Porte <span class="text-primary">*</span></p>
+<div class="flex items-center space-x-2 bg-white dark:bg-gray-800/50 p-1 rounded-lg border border-gray-300 dark:border-gray-700 h-14">
+<button class="flex-1 text-center py-2.5 rounded-md text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-primary/10 focus:bg-primary text-white focus:outline-none transition-colors">P</button>
+<button class="flex-1 text-center py-2.5 rounded-md text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-primary/10 bg-primary text-white focus:outline-none transition-colors">M</button>
+<button class="flex-1 text-center py-2.5 rounded-md text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-primary/10 focus:bg-primary text-white focus:outline-none transition-colors">G</button>
+</div>
+</div>
+</div>
+<label class="flex flex-col">
+<p class="text-base font-medium pb-2 text-gray-800 dark:text-gray-300">Observações</p>
+<textarea class="form-textarea flex w-full min-w-0 flex-1 resize-y overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800/50 min-h-28 placeholder:text-gray-500 dark:placeholder:text-gray-400 p-4 text-base font-normal" placeholder="Alergias, comportamento, etc."></textarea>
+</label>
+</div>
+</div>
+<div class="p-4 mt-auto">
+<button class="w-full flex items-center justify-center rounded-xl h-14 bg-primary text-white gap-2 text-lg font-bold leading-normal tracking-wide shadow-lg hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-background-dark">
+<span class="material-symbols-outlined">pets</span>
+                Salvar Pet
+            </button>
+</div>
+</div>
+</body></html>

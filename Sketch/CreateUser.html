@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cadastro - Pet Shop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#B76E2D",
+                        "background-light": "#FFF1E2",
+                        "background-dark": "#211811",
+                        "text-primary": "#1B1B1B",
+                        "text-secondary": "#9F9689"
+                    },
+                    fontFamily: {
+                        "display": ["Roboto", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'subtle': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .form-input:focus {
+            border-color: #B76E2D;
+            box-shadow: 0 0 0 2px rgba(183, 110, 45, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark">
+<div class="relative flex min-h-screen w-full flex-col items-center justify-center bg-background-light dark:bg-background-dark group/design-root p-4" style='font-family: "Roboto", sans-serif;'>
+<div class="w-full max-w-md space-y-6">
+<div class="flex justify-center">
+<div class="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-size: 48px;">
+                        pets
+                    </span>
+</div>
+</div>
+<h1 class="text-text-primary dark:text-white text-3xl font-bold text-center">Crie sua Conta</h1>
+<div class="space-y-4">
+<div class="flex flex-col">
+<label class="text-text-primary dark:text-white text-base font-medium pb-2" for="fullName">Nome Completo</label>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-primary dark:text-white focus:outline-none focus:ring-0 border border-gray-300 dark:border-gray-600 bg-white dark:bg-background-dark h-14 placeholder:text-text-secondary p-[15px] text-base font-normal leading-normal shadow-subtle" id="fullName" placeholder="Seu nome completo" type="text"/>
+</div>
+<div class="flex flex-col">
+<label class="text-text-primary dark:text-white text-base font-medium pb-2" for="email">Email</label>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-primary dark:text-white focus:outline-none focus:ring-0 border border-gray-300 dark:border-gray-600 bg-white dark:bg-background-dark h-14 placeholder:text-text-secondary p-[15px] text-base font-normal leading-normal shadow-subtle" id="email" placeholder="seuemail@exemplo.com" type="email"/>
+</div>
+<div class="flex flex-col">
+<label class="text-text-primary dark:text-white text-base font-medium pb-2" for="phone">Celular</label>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-primary dark:text-white focus:outline-none focus:ring-0 border border-gray-300 dark:border-gray-600 bg-white dark:bg-background-dark h-14 placeholder:text-text-secondary p-[15px] text-base font-normal leading-normal shadow-subtle" id="phone" placeholder="(00) 00000-0000" type="tel"/>
+</div>
+<div class="relative flex flex-col">
+<label class="text-text-primary dark:text-white text-base font-medium pb-2" for="password">Senha</label>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-primary dark:text-white focus:outline-none focus:ring-0 border border-gray-300 dark:border-gray-600 bg-white dark:bg-background-dark h-14 placeholder:text-text-secondary p-[15px] text-base font-normal leading-normal shadow-subtle pr-12" id="password" placeholder="Crie uma senha forte" type="password"/>
+<button class="absolute inset-y-0 right-0 top-9 flex items-center pr-4 text-text-secondary" type="button">
+<span class="material-symbols-outlined">visibility_off</span>
+</button>
+</div>
+<div class="relative flex flex-col">
+<label class="text-text-primary dark:text-white text-base font-medium pb-2" for="confirmPassword">Confirmar Senha</label>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-primary dark:text-white focus:outline-none focus:ring-0 border border-gray-300 dark:border-gray-600 bg-white dark:bg-background-dark h-14 placeholder:text-text-secondary p-[15px] text-base font-normal leading-normal shadow-subtle pr-12" id="confirmPassword" placeholder="Confirme sua senha" type="password"/>
+<button class="absolute inset-y-0 right-0 top-9 flex items-center pr-4 text-text-secondary" type="button">
+<span class="material-symbols-outlined">visibility_off</span>
+</button>
+</div>
+</div>
+<div class="space-y-4 text-center">
+<button class="w-full bg-primary text-white font-bold py-4 px-4 rounded-lg shadow-subtle hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 transition-all duration-200">
+                    Cadastrar
+                </button>
+<a class="inline-block text-primary dark:text-primary/80 font-medium hover:underline" href="#">Já tenho uma conta</a>
+</div>
+</div>
+</div>
+</body></html>

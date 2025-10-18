@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pet Shop App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#cb6a1a",
+              "background-light": "#f8f7f6",
+              "background-dark": "#211811",
+            },
+            fontFamily: {
+              "display": ["Space Grotesk", "Noto Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-screen w-full flex-col group/design-root overflow-hidden">
+<!-- Search Bar -->
+<div class="absolute top-0 left-0 right-0 z-10 px-4 pt-4 bg-gradient-to-b from-background-light dark:from-background-dark to-transparent">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full shadow-md">
+<div class="text-gray-500 dark:text-gray-400 flex bg-white dark:bg-background-dark items-center justify-center pl-4 rounded-l-xl border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-xl text-gray-900 dark:text-gray-100 focus:outline-0 focus:ring-0 border-none bg-white dark:bg-background-dark h-full placeholder:text-gray-500 dark:placeholder:text-gray-400 px-4 text-base font-normal leading-normal" placeholder="Buscar serviços ou localizações" value=""/>
+</div>
+</label>
+</div>
+<!-- Map -->
+<div class="flex-1 relative">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Interactive map showing pet services locations" data-location="São Paulo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCSjPL2ivC8VahIAq3I4breG5wbSREPwRag5hZ1yBosX8WT0IOVCg4tAF-5-wmGco7KUV4z35Z70I6MSUG1P-eIxbg4IWx_1M9Z-9SlJU2ckudA4sXZVqf4rkrqTOz4CupC-5nkrDYKgRRt9dS_F36kM4kFskxaJ1lDsAaMFxXRMLPQxDX3uteVFRofzoh7QKpwA3U7AmzKjmPUTxwCBHxWyucbbeudWLrCNNvxmoCwjvJ3QlnLUYLzLXVC2l543KoEhOjfHP2YhWWc");'>
+<!-- Map Markers -->
+<!-- Veterinarian -->
+<div class="absolute" style="top: 35%; left: 50%;">
+<button class="group">
+<div class="bg-green-500 p-2 rounded-full shadow-lg">
+<span class="material-symbols-outlined text-white">local_hospital</span>
+</div>
+<div class="hidden group-focus:block absolute bottom-full left-1/2 -translate-x-1/2 w-48 bg-white dark:bg-background-dark rounded-lg shadow-lg p-3 text-center mb-2">
+<p class="font-bold text-gray-900 dark:text-white">Clínica Vet ABC</p>
+<p class="text-sm text-gray-600 dark:text-gray-300">A 2.5 km de distância</p>
+</div>
+</button>
+</div>
+<!-- Pet Shop/Hotel -->
+<div class="absolute" style="top: 60%; left: 20%;">
+<button class="group">
+<div class="bg-blue-500 p-2 rounded-full shadow-lg">
+<span class="material-symbols-outlined text-white">shopping_cart</span>
+</div>
+<div class="hidden group-focus:block absolute bottom-full left-1/2 -translate-x-1/2 w-48 bg-white dark:bg-background-dark rounded-lg shadow-lg p-3 text-center mb-2">
+<p class="font-bold text-gray-900 dark:text-white">Pet Store &amp; Hotel</p>
+<p class="text-sm text-gray-600 dark:text-gray-300">A 1.2 km de distância</p>
+</div>
+</button>
+</div>
+<!-- Grooming -->
+<div class="absolute" style="top: 55%; left: 75%;">
+<button class="group">
+<div class="bg-primary p-2 rounded-full shadow-lg">
+<span class="material-symbols-outlined text-white">shower</span>
+</div>
+<div class="hidden group-focus:block absolute bottom-full left-1/2 -translate-x-1/2 w-48 bg-white dark:bg-background-dark rounded-lg shadow-lg p-3 text-center mb-2">
+<p class="font-bold text-gray-900 dark:text-white">Banho &amp; Tosa Estilo</p>
+<p class="text-sm text-gray-600 dark:text-gray-300">A 3.0 km de distância</p>
+</div>
+</button>
+</div>
+</div>
+<div class="absolute bottom-24 right-4 flex flex-col items-end gap-3">
+<div class="flex flex-col gap-0.5">
+<button class="flex size-10 items-center justify-center rounded-t-lg bg-white dark:bg-background-dark shadow-md">
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-200">add</span>
+</button>
+<button class="flex size-10 items-center justify-center rounded-b-lg bg-white dark:bg-background-dark shadow-md">
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-200">remove</span>
+</button>
+</div>
+<button class="flex size-10 items-center justify-center rounded-lg bg-white dark:bg-background-dark shadow-md">
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-200">my_location</span>
+</button>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<div class="flex gap-2 border-t border-gray-200 dark:border-gray-800 bg-background-light dark:bg-background-dark px-4 pb-3 pt-2">
+<a class="flex flex-1 flex-col items-center justify-end gap-1 rounded-full text-primary" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">map</span>
+</div>
+<p class="text-primary text-xs font-medium leading-normal tracking-[0.015em]">Mapa</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-gray-500 dark:text-gray-400" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">pets</span>
+</div>
+<p class="text-xs font-medium leading-normal tracking-[0.015em]">Meus Pets</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-gray-500 dark:text-gray-400" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">cut</span>
+</div>
+<p class="text-xs font-medium leading-normal tracking-[0.015em]">Serviços</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-gray-500 dark:text-gray-400" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">person</span>
+</div>
+<p class="text-xs font-medium leading-normal tracking-[0.015em]">Perfil</p>
+</a>
+</div>
+</div>
+</body></html>

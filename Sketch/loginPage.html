@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login - Pet Shop App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#B76E2D",
+            "background-light": "#FFF1E2",
+            "background-dark": "#211811",
+            "text-main": "#1B1B1B",
+            "text-secondary": "#555151",
+          },
+          fontFamily: {
+            "display": ["Roboto", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+          boxShadow: {
+            'subtle': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-screen min-h-screen w-full flex-col items-center justify-center bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden p-6">
+<div class="flex flex-col items-center justify-center w-full max-w-md">
+<div class="mb-8 text-primary dark:text-white">
+<span class="material-symbols-outlined" style="font-size: 64px;">pets</span>
+</div>
+<h1 class="text-text-main dark:text-white text-3xl font-bold mb-2 text-center">Bem-vindo de volta!</h1>
+<p class="text-text-secondary dark:text-gray-300 text-base font-normal mb-8 text-center">Faça login para continuar</p>
+<div class="w-full flex flex-col gap-y-6">
+<label class="flex flex-col w-full">
+<p class="text-text-main dark:text-white text-base font-medium leading-normal pb-2">Email</p>
+<div class="relative flex w-full flex-1 items-stretch rounded-lg shadow-subtle">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-main dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 h-14 placeholder:text-text-secondary dark:placeholder:text-gray-400 p-4 text-base font-normal leading-normal" placeholder="Digite seu email" type="email" value=""/>
+<div class="absolute inset-y-0 right-0 flex items-center pr-4 text-text-secondary dark:text-gray-400">
+<span class="material-symbols-outlined">mail</span>
+</div>
+</div>
+</label>
+<label class="flex flex-col w-full">
+<p class="text-text-main dark:text-white text-base font-medium leading-normal pb-2">Senha</p>
+<div class="relative flex w-full flex-1 items-stretch rounded-lg shadow-subtle">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-main dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 h-14 placeholder:text-text-secondary dark:placeholder:text-gray-400 p-4 text-base font-normal leading-normal" placeholder="Digite sua senha" type="password" value=""/>
+<div class="absolute inset-y-0 right-0 flex items-center pr-4 text-text-secondary dark:text-gray-400 cursor-pointer">
+<span class="material-symbols-outlined">visibility</span>
+</div>
+</div>
+</label>
+<a class="text-text-secondary dark:text-gray-300 text-sm font-medium text-right hover:text-primary dark:hover:text-primary" href="#">Esqueci minha senha?</a>
+<button class="w-full bg-primary text-white font-bold py-4 rounded-lg shadow-subtle hover:bg-opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+        Entrar
+      </button>
+<div class="flex items-center justify-center gap-2 mt-4">
+<p class="text-text-secondary dark:text-gray-300 text-sm">Não tem uma conta?</p>
+<a class="text-primary font-bold text-sm hover:underline" href="#">Criar Conta</a>
+</div>
+</div>
+</div>
+</div>
+</body></html>
