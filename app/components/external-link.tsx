@@ -7,7 +7,6 @@ type Props = PressableProps & { href: string; children?: React.ReactNode };
 export function ExternalLink({ href, children, onPress, ...rest }: Props) {
   if (Platform.OS === 'web') {
     return (
-      // @ts-expect-error JSX intrinsic 'a' exists on web builds
       <a href={href} target="_blank" rel="noreferrer">
         {children}
       </a>
