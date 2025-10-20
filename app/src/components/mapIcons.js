@@ -3,7 +3,7 @@ import L from 'leaflet';
 const CATEGORY_CONFIG = {
   vet: {
     label: 'Clínica veterinária',
-    glyph: 'vaccines',
+    glyph: 'medical_services',
     colorVar: '--color-category-vet',
   },
   grooming: {
@@ -12,8 +12,8 @@ const CATEGORY_CONFIG = {
     colorVar: '--color-category-grooming',
   },
   hotel: {
-    label: 'Hotel & creche',
-    glyph: 'hotel',
+    label: 'Loja · hotel · ração',
+    glyph: 'storefront',
     colorVar: '--color-category-hotel',
   },
 };

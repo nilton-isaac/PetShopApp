@@ -88,13 +88,13 @@ export default function Home() {
 
   const summaryText = useMemo(() => {
     if (isLoading) {
-      return 'Buscando parceiros...';
+      return 'Buscando serviços próximos...';
     }
     if (error) {
       return error;
     }
     if (!filteredServices.length) {
-      return 'Nenhum local encontrado para os filtros selecionados.';
+      return 'Nenhum serviço encontrado para os filtros selecionados.';
     }
     return `${filteredServices.length} locais disponíveis`;
   }, [error, filteredServices.length, isLoading]);
@@ -164,7 +164,7 @@ export default function Home() {
               inputProps={{
                 value: searchTerm,
                 onChange: (event) => setSearchTerm(event.target.value),
-                placeholder: 'Buscar por serviço ou endereço',
+                placeholder: 'Buscar serviços ou localizações',
                 autoComplete: 'off',
               }}
             />

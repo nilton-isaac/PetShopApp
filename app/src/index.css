@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded');
 @import './styles/tokens.css';
@@ -19,14 +19,17 @@ body {
   font-family: var(--font-family-body);
   color: var(--color-text);
   -webkit-font-smoothing: antialiased;
+  background-image: radial-gradient(circle at top, rgba(183, 110, 45, 0.08), transparent 45%),
+    radial-gradient(circle at bottom, rgba(159, 150, 137, 0.08), transparent 52%);
 }
 
 #root {
   min-height: 100dvh;
   display: flex;
   justify-content: center;
-  background: var(--color-background);
-  padding: clamp(var(--space-sm), 4vw, var(--space-xl));
+  align-items: center;
+  background: transparent;
+  padding: clamp(var(--space-md), 6vw, var(--space-3xl));
 }
 
 a {
@@ -109,11 +112,10 @@ select {
   position: sticky;
   top: 0;
   z-index: 10;
-  padding: clamp(var(--space-sm), 3vw, var(--space-md))
-    clamp(var(--space-lg), 6vw, 72px);
-  background: color-mix(in srgb, var(--color-surface) 94%, white 6%);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid color-mix(in srgb, var(--color-border) 55%, transparent);
+  padding: clamp(var(--space-sm), 3vw, var(--space-md)) clamp(var(--space-lg), 6vw, 72px);
+  background: rgba(255, 241, 226, 0.9);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-border) 65%, transparent);
 }
 
 .app-header--landing {
@@ -168,16 +170,16 @@ select {
 
 .card {
   background: var(--color-surface);
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--color-border);
-  padding: var(--space-lg);
-  box-shadow: none;
+  border-radius: var(--radius-md);
+  border: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
+  padding: clamp(var(--space-lg), 4vw, var(--space-xl));
+  box-shadow: var(--shadow-soft);
 }
 
 .card--tonal {
-  background: color-mix(in srgb, var(--color-surface-tonal) 92%, white 8%);
-  border-color: color-mix(in srgb, var(--color-surface-tonal) 65%, transparent);
-  box-shadow: inset 0 0 0 1px rgba(231, 111, 81, 0.08);
+  background: color-mix(in srgb, var(--color-surface-tonal) 90%, white 10%);
+  border-color: color-mix(in srgb, var(--color-border) 55%, transparent);
+  box-shadow: inset 0 0 0 1px rgba(183, 110, 45, 0.08);
 }
 
 .button {
@@ -186,33 +188,47 @@ select {
   justify-content: center;
   gap: var(--space-xs);
   border-radius: var(--radius-pill);
-  min-height: 44px;
-  padding: 0 var(--space-lg);
+  min-height: 46px;
+  padding: 0 calc(var(--space-lg) + 2px);
   font-weight: 600;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+  letter-spacing: 0.01em;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease, color 0.18s ease;
 }
 
 .button--small {
-  min-height: 36px;
+  min-height: 38px;
   padding-inline: var(--space-md);
   font-size: var(--font-size-sm);
 }
 
 .button--primary {
   background: var(--color-primary);
-  color: white;
-  box-shadow: none;
+  color: #fff1e2;
+  box-shadow: 0 12px 28px rgba(183, 110, 45, 0.28);
+}
+
+.button--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 32px rgba(98, 63, 43, 0.2);
 }
 
 .button--primary:active {
-  transform: translateY(1px);
+  transform: translateY(0);
   background: var(--color-primary-strong);
+  box-shadow: 0 8px 18px rgba(98, 63, 43, 0.24);
 }
 
 .button--secondary {
-  background: var(--color-surface-tonal);
-  background: color-mix(in srgb, var(--color-surface-tonal) 65%, transparent);
+  background: color-mix(in srgb, var(--color-surface-tonal) 80%, white 20%);
   color: var(--color-text);
+  border: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+  box-shadow: none;
+}
+
+.button--secondary:hover {
+  background: color-mix(in srgb, var(--color-surface-tonal) 90%, white 10%);
 }
 
 .button--ghost {
@@ -220,8 +236,12 @@ select {
   color: var(--color-primary);
 }
 
+.button--ghost:hover {
+  color: var(--color-primary-strong);
+}
+
 .button:disabled {
-  opacity: 0.5;
+  opacity: 0.45;
   pointer-events: none;
 }
 
@@ -232,8 +252,9 @@ select {
 }
 
 .input-field label {
-  font-weight: 600;
+  font-weight: 500;
   font-size: var(--font-size-sm);
+  color: var(--color-text-subtle);
 }
 
 .input-field__control {
@@ -241,17 +262,19 @@ select {
   align-items: center;
   gap: var(--space-xs);
   width: 100%;
-  min-height: 44px;
+  min-height: 46px;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--color-border);
+  border: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
   padding: 0 var(--space-md);
-  background: rgba(255, 255, 255, 0.9);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background: rgba(255, 241, 226, 0.78);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .input-field__control:focus-within {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 2px rgba(231, 111, 81, 0.18);
+  border-color: color-mix(in srgb, var(--color-primary) 65%, transparent);
+  background: rgba(255, 241, 226, 0.95);
+  box-shadow: 0 0 0 2px rgba(183, 110, 45, 0.18);
 }
 
 .input-field__control--multiline {
@@ -267,17 +290,21 @@ select {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-subtle);
+  color: var(--color-text-muted);
 }
 
 .input-field__input {
   flex: 1;
   border: none;
   background: transparent;
-  color: inherit;
+  color: var(--color-text);
   min-height: inherit;
   padding-block: var(--space-2xs);
   resize: vertical;
+}
+
+.input-field__input::placeholder {
+  color: color-mix(in srgb, var(--color-text-muted) 85%, white 15%);
 }
 
 .input-field__input:focus {
@@ -285,14 +312,14 @@ select {
 }
 
 .input-field textarea.input-field__input {
-  min-height: 88px;
+  min-height: 96px;
   padding-block: var(--space-xs);
 }
 
 .input-field__action {
   border: none;
   background: transparent;
-  color: var(--color-text-subtle);
+  color: var(--color-text-muted);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -306,12 +333,12 @@ select {
 
 .input-field select {
   width: 100%;
-  min-height: 44px;
+  min-height: 46px;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--color-border);
+  border: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
   padding: 0 var(--space-md);
-  background: rgba(255, 255, 255, 0.9);
-  color: inherit;
+  background: rgba(255, 241, 226, 0.78);
+  color: var(--color-text);
 }
 
 .chip-fieldset {
@@ -345,27 +372,27 @@ select {
 }
 
 .chip--selectable {
-  border: 1px solid color-mix(in srgb, var(--color-border) 90%, transparent);
-  background: color-mix(in srgb, var(--color-surface) 75%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-border) 75%, transparent);
+  background: color-mix(in srgb, var(--color-surface) 85%, white 15%);
   color: var(--color-text);
   cursor: pointer;
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .chip--selectable:hover {
-  background: color-mix(in srgb, var(--color-surface-tonal) 65%, transparent);
+  background: color-mix(in srgb, var(--color-surface-tonal) 80%, white 20%);
 }
 
 .chip--selectable:focus-visible {
-  outline: 3px solid rgba(217, 119, 58, 0.35);
+  outline: 3px solid rgba(183, 110, 45, 0.36);
   outline-offset: 3px;
 }
 
 .chip--selected {
-  background: color-mix(in srgb, var(--color-primary) 20%, var(--color-surface-tonal));
+  background: color-mix(in srgb, var(--color-primary) 18%, var(--color-surface));
   border-color: color-mix(in srgb, var(--color-primary) 35%, transparent);
   color: var(--color-primary-strong);
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-primary) 35%, transparent);
+  box-shadow: 0 4px 14px rgba(98, 63, 43, 0.18);
 }
 
 .photo-picker {
@@ -399,26 +426,29 @@ select {
 
 .photo-picker__preview {
   position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  border-radius: var(--radius-md);
-  background: color-mix(in srgb, var(--color-surface-tonal) 75%, transparent);
+  width: min(100%, 200px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--color-surface-tonal) 85%, white 15%);
   background-size: cover;
   background-position: center;
-  border: 1px dashed color-mix(in srgb, var(--color-border) 80%, transparent);
+  border: 1px dashed color-mix(in srgb, var(--color-border) 70%, transparent);
   display: grid;
   place-items: center;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   cursor: pointer;
+  overflow: hidden;
+  align-self: center;
 }
 
 .photo-picker__preview:focus-visible {
-  outline: 3px solid rgba(217, 119, 58, 0.35);
+  outline: 3px solid rgba(183, 110, 45, 0.36);
   outline-offset: 3px;
 }
 
 .photo-picker__preview:hover {
-  border-color: color-mix(in srgb, var(--color-primary) 35%, transparent);
+  border-color: color-mix(in srgb, var(--color-primary) 40%, transparent);
+  transform: translateY(-1px);
 }
 
 .photo-picker__placeholder {
@@ -427,7 +457,7 @@ select {
   align-items: center;
   gap: var(--space-2xs);
   text-align: center;
-  color: var(--color-text-subtle);
+  color: var(--color-text-muted);
 }
 
 .photo-picker__placeholder .material-symbols-outlined {
@@ -475,9 +505,10 @@ select {
   height: 72px;
   padding: 0 clamp(var(--space-md), 5vw, var(--space-lg))
     calc(var(--space-xs) + env(safe-area-inset-bottom));
-  background: color-mix(in srgb, var(--color-surface-tonal) 82%, white 18%);
-  backdrop-filter: blur(16px);
-  border-top: 1px solid color-mix(in srgb, var(--color-border) 55%, transparent);
+  background: rgba(255, 241, 226, 0.92);
+  backdrop-filter: blur(18px);
+  border-top: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+  box-shadow: 0 -12px 30px rgba(27, 27, 27, 0.08);
 }
 
 .map-view {
@@ -520,7 +551,7 @@ select {
 }
 
 .home-map__search .input-field__control {
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 241, 226, 0.95);
   border-radius: var(--radius-pill);
   border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
   box-shadow: var(--shadow-soft);
@@ -538,7 +569,7 @@ select {
   color: var(--color-text);
   padding: var(--space-2xs) var(--space-sm);
   border-radius: var(--radius-pill);
-  background: color-mix(in srgb, var(--color-surface) 65%, transparent);
+  background: color-mix(in srgb, var(--color-surface) 75%, white 10%);
   width: fit-content;
 }
 
@@ -549,7 +580,7 @@ select {
   font-size: var(--font-size-xs);
   padding: var(--space-2xs) var(--space-sm);
   border-radius: var(--radius-pill);
-  background: color-mix(in srgb, var(--color-surface-tonal) 50%, transparent);
+  background: color-mix(in srgb, var(--color-surface-tonal) 60%, white 12%);
   color: var(--color-primary-strong);
   box-shadow: var(--shadow-soft);
 }
@@ -569,7 +600,7 @@ select {
   border: none;
   border-radius: var(--radius-pill);
   padding: var(--space-2xs) var(--space-sm);
-  background: color-mix(in srgb, var(--color-surface) 70%, transparent);
+  background: color-mix(in srgb, var(--color-surface) 85%, white 15%);
   color: var(--color-text);
   box-shadow: var(--shadow-soft);
   cursor: pointer;
@@ -582,7 +613,7 @@ select {
 }
 
 .home-map__chip--active {
-  background: color-mix(in srgb, var(--color-primary) 25%, white);
+  background: color-mix(in srgb, var(--color-primary) 20%, var(--color-surface));
   color: var(--color-primary-strong);
 }
 
@@ -590,7 +621,7 @@ select {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: color-mix(in srgb, var(--color-primary) 35%, white);
+  background: color-mix(in srgb, var(--color-primary) 38%, white 12%);
   color: var(--color-surface);
   display: grid;
   place-items: center;
@@ -619,7 +650,7 @@ select {
   border: none;
   display: grid;
   place-items: center;
-  background: color-mix(in srgb, var(--color-surface) 80%, transparent);
+  background: rgba(255, 241, 226, 0.94);
   color: var(--color-text);
   box-shadow: var(--shadow-soft);
   cursor: pointer;
@@ -656,9 +687,9 @@ select {
   gap: var(--space-sm);
   padding: var(--space-sm) var(--space-md);
   border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 241, 226, 0.94);
   backdrop-filter: blur(12px);
-  border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-border) 55%, transparent);
   box-shadow: var(--shadow-soft);
   cursor: pointer;
   text-align: left;
@@ -704,18 +735,17 @@ select {
 }
 
 .map-icon {
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   display: grid;
   place-items: center;
   color: white;
   font-size: 22px;
   font-weight: 600;
-  box-shadow: var(--shadow-soft);
-  background: var(--color-primary);
+  box-shadow: 0 14px 28px rgba(27, 27, 27, 0.22);
   background: var(--map-icon-color, var(--color-primary));
-  border: 3px solid rgba(255, 255, 255, 0.8);
+  border: 3px solid rgba(255, 241, 226, 0.92);
 }
 
 .map-popup {
@@ -781,8 +811,8 @@ select {
   align-items: center;
   justify-content: center;
   gap: 2px;
-  color: color-mix(in srgb, var(--color-text-subtle) 92%, transparent);
-  transition: color 0.2s ease, transform 0.2s ease;
+  color: var(--color-text-muted);
+  transition: color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
   border-radius: var(--radius-pill);
   padding: var(--space-2xs) var(--space-xs);
 }
@@ -801,7 +831,8 @@ select {
 .bottom-nav__link--active {
   color: var(--color-primary-strong);
   transform: translateY(-4px);
-  background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+  background: color-mix(in srgb, var(--color-primary) 15%, var(--color-surface));
+  box-shadow: 0 8px 18px rgba(183, 110, 45, 0.18);
 }
 
 .bottom-nav__link--active .bottom-nav__icon {
@@ -933,7 +964,7 @@ select {
 }
 
 :focus-visible {
-  outline: 3px solid rgba(217, 119, 58, 0.35);
+  outline: 3px solid rgba(183, 110, 45, 0.36);
   outline-offset: 3px;
 }
 
@@ -942,7 +973,7 @@ select {
 }
 
 .app-shell--auth {
-  background: linear-gradient(160deg, #fef3e2 0%, rgba(251, 233, 221, 0.6) 45%, rgba(231, 111, 81, 0.08) 100%);
+  background: linear-gradient(165deg, rgba(255, 241, 226, 0.95) 0%, rgba(183, 110, 45, 0.18) 48%, rgba(27, 27, 27, 0.08) 100%);
 }
 
 .app-shell--auth .app-header {
@@ -972,8 +1003,9 @@ select {
   flex-direction: column;
   gap: clamp(var(--space-md), 2vw, var(--space-lg));
   padding: clamp(var(--space-lg), 5vw, var(--space-2xl));
-  border-radius: clamp(var(--radius-md), 4vw, var(--radius-xl));
-  background: rgba(255, 255, 255, 0.92);
+  border-radius: clamp(var(--radius-md), 4vw, var(--radius-lg));
+  background: rgba(255, 241, 226, 0.92);
+  border: 1px solid color-mix(in srgb, var(--color-border) 65%, transparent);
   backdrop-filter: blur(18px);
   box-shadow: var(--shadow-soft);
 }
@@ -987,25 +1019,30 @@ select {
 }
 
 .auth-icon {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
+  width: 72px;
+  height: 72px;
+  border-radius: 24px;
   display: grid;
   place-items: center;
-  background: color-mix(in srgb, var(--color-primary) 18%, white);
-  color: var(--color-primary);
-  font-size: 36px;
+  background: linear-gradient(140deg, rgba(183, 110, 45, 0.18), rgba(98, 63, 43, 0.16));
+  color: var(--color-primary-strong);
+  box-shadow: 0 8px 20px rgba(27, 27, 27, 0.08);
+  font-size: 38px;
 }
 
 .auth-header__text h1 {
   font-family: var(--font-family-display);
-  font-size: clamp(var(--font-size-lg), 3.2vw, var(--font-size-xl));
+  font-weight: 700;
+  font-size: clamp(var(--font-size-lg), 3vw, var(--font-size-xl));
   line-height: var(--line-height-tight);
+  color: var(--color-text);
 }
 
 .auth-header__text p {
-  color: var(--color-text-subtle);
+  color: var(--color-text-muted);
   font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  max-width: 32ch;
 }
 
 .auth-fields {
@@ -1026,13 +1063,14 @@ select {
   border: none;
   background: none;
   color: var(--color-primary);
-  font-weight: 600;
+  font-weight: 500;
   font-size: var(--font-size-sm);
   cursor: pointer;
+  transition: color 0.2s ease;
 }
 
 .auth-link-button:hover {
-  text-decoration: underline;
+  color: var(--color-primary-strong);
 }
 
 .auth-footer__cta {
@@ -1050,7 +1088,7 @@ select {
 .auth-error {
   padding: var(--space-xs) var(--space-sm);
   border-radius: var(--radius-sm);
-  background: rgba(231, 111, 81, 0.1);
+  background: rgba(196, 91, 59, 0.12);
   color: var(--color-primary-strong);
   font-size: var(--font-size-sm);
 }
