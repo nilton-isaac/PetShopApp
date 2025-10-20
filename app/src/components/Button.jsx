@@ -13,7 +13,17 @@ const sizeClassMap = {
 };
 
 const Button = forwardRef(function Button(
-  { as: asProp, to, href, children, variant = 'primary', size = 'default', className = '', ...rest },
+  {
+    as: asProp,
+    to,
+    href,
+    children,
+    variant = 'primary',
+    size = 'default',
+    fullWidth = false,
+    className = '',
+    ...rest
+  },
   ref,
 ) {
   const classNames = [variantClassMap[variant] ?? variantClassMap.primary, className]
@@ -24,7 +34,9 @@ const Button = forwardRef(function Button(
 
   const componentProps = {
     ref,
-    className: [classNames, sizeClassMap[size] ?? ''].filter(Boolean).join(' '),
+    className: [classNames, sizeClassMap[size] ?? '', fullWidth ? 'button--full-width' : '']
+      .filter(Boolean)
+      .join(' '),
     ...rest,
   };
 

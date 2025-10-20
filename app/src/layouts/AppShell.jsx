@@ -23,9 +23,10 @@ export default function AppShell() {
   const title = headerTitles[location.pathname] ?? 'Pet Ride';
 
   const shouldShowQuickActions = location.pathname === '/';
+  const isAuthFlow = location.pathname === '/login' || location.pathname === '/register';
 
   return (
-    <div className="app-shell">
+    <div className={['app-shell', isAuthFlow ? 'app-shell--auth' : ''].filter(Boolean).join(' ')}>
       <header className="app-header">
         <div className="app-header__title">
           <span aria-hidden="true" role="img">🐾</span>
@@ -35,7 +36,7 @@ export default function AppShell() {
           <p className="app-header__subtitle">Operando em {state.user.city}</p>
         )}
       </header>
-      <main className="app-main">
+      <main className={['app-main', isAuthFlow ? 'app-main--auth' : ''].filter(Boolean).join(' ')}>
         {shouldShowQuickActions && (
           <section className="section">
             <div className="hero">
