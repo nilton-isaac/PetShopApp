@@ -1,7 +1,6 @@
 import React from 'react';
-import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import BottomNav from '../components/BottomNav.jsx';
-import Button from '../components/Button.jsx';
 import { useAppState } from '../state/AppState.jsx';
 
 const headerTitles = {
@@ -18,31 +17,42 @@ const headerTitles = {
 
 export default function AppShell() {
   const location = useLocation();
-  const navigate = useNavigate();
   const { state } = useAppState();
   const title = headerTitles[location.pathname] ?? 'Pet Ride';
 
-  const shouldShowQuickActions = location.pathname === '/';
+  const isRoot = location.pathname === '/';
   const isAuthFlow = location.pathname === '/login' || location.pathname === '/register';
   const isFullBleed = location.pathname === '/home';
+  const shouldShowHero = isRoot;
+  const shouldRenderHeader = !isAuthFlow;
 
   return (
     <div className={['app-shell', isAuthFlow ? 'app-shell--auth' : ''].filter(Boolean).join(' ')}>
-      <header className="app-header">
-        <div className="app-header__title">
-          <span aria-hidden="true" role="img">🐾</span>
-          {title}
-        </div>
-        {state.user?.city && (
-          <p className="app-header__subtitle">Operando em {state.user.city}</p>
-        )}
-      </header>
+      {shouldRenderHeader && (
+        <header className={['app-header', isRoot ? 'app-header--landing' : 'app-header--minimal']
+          .filter(Boolean)
+          .join(' ')}>
+          <div className="app-header__title">
+            {isRoot ? (
+              <>
+                <span aria-hidden="true" role="img">🐾</span>
+                {title}
+              </>
+            ) : (
+              <span>{title}</span>
+            )}
+          </div>
+          {isRoot && state.user?.city && (
+            <p className="app-header__subtitle">Operando em {state.user.city}</p>
+          )}
+        </header>
+      )}
       <main
         className={['app-main', isAuthFlow ? 'app-main--auth' : '', isFullBleed ? 'app-main--fullbleed' : '']
           .filter(Boolean)
           .join(' ')}
       >
-        {shouldShowQuickActions && (
+        {shouldShowHero && (
           <section className="section">
             <div className="hero">
               <p className="tag">Beta fechado</p>
@@ -51,22 +61,11 @@ export default function AppShell() {
                 Solicite corridas, encontre serviços e compartilhe indicações com vizinhos em poucos toques.
               </p>
             </div>
-            <div className="flow-actions">
-              <Button onClick={() => navigate('/pets/add')} variant="primary">
-                Cadastrar pet
-              </Button>
-              <Button onClick={() => navigate('/home')} variant="secondary">
-                Ver mapa
-              </Button>
-              <Button onClick={() => navigate('/services')} variant="ghost">
-                Explorar serviços
-              </Button>
-            </div>
           </section>
         )}
         <Outlet />
       </main>
-      <BottomNav />
+      {!isAuthFlow && <BottomNav />}
     </div>
   );
 }

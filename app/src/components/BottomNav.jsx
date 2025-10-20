@@ -3,8 +3,8 @@ import { NavLink, useLocation } from 'react-router-dom';
 
 const items = [
   { to: '/home', icon: 'map', label: 'Mapa' },
-  { to: '/pets', icon: 'pets', label: 'Meus Pets' },
-  { to: '/services', icon: 'content_cut', label: 'Serviços' },
+  { to: '/pets', icon: 'pets', label: 'Meus pets' },
+  { to: '/services', icon: 'storefront', label: 'Serviços' },
   { to: '/profile', icon: 'person', label: 'Perfil' },
 ];
 
@@ -26,10 +26,10 @@ export default function BottomNav() {
             ['bottom-nav__link', isActive ? 'bottom-nav__link--active' : ''].filter(Boolean).join(' ')
           }
         >
-          <span aria-hidden="true" className="material-symbols-outlined">
+          <span aria-hidden="true" className="bottom-nav__icon material-symbols-rounded">
             {item.icon}
           </span>
-          {item.label}
+          <span className="bottom-nav__label">{item.label}</span>
         </NavLink>
       ))}
     </nav>
