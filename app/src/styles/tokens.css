@@ -1,20 +1,21 @@
 :root {
   color-scheme: light dark;
-  --color-primary: #cb6a1a;
-  --color-primary-strong: #9a4d0c;
-  --color-surface: #ffffff;
-  --color-background: #f8f7f6;
-  --color-border: rgba(18, 11, 6, 0.08);
-  --color-text: #1f1208;
-  --color-text-subtle: #6f6b68;
+  --color-primary: #d9773a;
+  --color-primary-strong: #a95524;
+  --color-surface: #fff5ed;
+  --color-surface-tonal: #f7d8c2;
+  --color-background: #fbe9dd;
+  --color-border: rgba(74, 47, 26, 0.12);
+  --color-text: #4a2f1a;
+  --color-text-subtle: #8f6b52;
   --color-success: #2a9d8f;
   --color-danger: #e76f51;
-  --shadow-soft: 0 12px 32px rgba(22, 15, 10, 0.12);
-  --shadow-raised: 0 20px 45px rgba(22, 15, 10, 0.16);
-  --radius-xs: 6px;
-  --radius-sm: 12px;
-  --radius-md: 16px;
-  --radius-lg: 20px;
+  --shadow-soft: 0 6px 24px rgba(74, 47, 26, 0.12);
+  --shadow-raised: 0 12px 32px rgba(74, 47, 26, 0.16);
+  --radius-xs: 4px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
   --radius-pill: 9999px;
   --font-family-display: 'Space Grotesk', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-family-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -38,12 +39,13 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-surface: #211811;
-    --color-background: #140d08;
-    --color-border: rgba(255, 255, 255, 0.08);
-    --color-text: #f4ede7;
-    --color-text-subtle: rgba(244, 237, 231, 0.75);
-    --shadow-soft: 0 16px 36px rgba(0, 0, 0, 0.4);
-    --shadow-raised: 0 24px 52px rgba(0, 0, 0, 0.5);
+    --color-surface: #2f1d13;
+    --color-surface-tonal: #3c2619;
+    --color-background: #1f140c;
+    --color-border: rgba(248, 220, 200, 0.18);
+    --color-text: #f8eee5;
+    --color-text-subtle: rgba(248, 238, 229, 0.7);
+    --shadow-soft: 0 10px 28px rgba(0, 0, 0, 0.5);
+    --shadow-raised: 0 18px 40px rgba(0, 0, 0, 0.55);
   }
 }
