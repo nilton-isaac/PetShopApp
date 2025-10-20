@@ -4,7 +4,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 const items = [
   { to: '/home', icon: 'map', label: 'Mapa' },
   { to: '/pets', icon: 'pets', label: 'Meus Pets' },
-  { to: '/services', icon: 'cut', label: 'Serviços' },
+  { to: '/services', icon: 'content_cut', label: 'Serviços' },
   { to: '/profile', icon: 'person', label: 'Perfil' },
 ];
 
