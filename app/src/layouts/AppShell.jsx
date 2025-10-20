@@ -23,7 +23,6 @@ export default function AppShell() {
   const isRoot = location.pathname === '/';
   const isAuthFlow = location.pathname === '/login' || location.pathname === '/register';
   const isFullBleed = location.pathname === '/home';
-  const shouldShowHero = isRoot;
   const shouldRenderHeader = !isAuthFlow;
 
   return (
@@ -52,17 +51,6 @@ export default function AppShell() {
           .filter(Boolean)
           .join(' ')}
       >
-        {shouldShowHero && (
-          <section className="section">
-            <div className="hero">
-              <p className="tag">Beta fechado</p>
-              <h1 className="hero__title">Motoristas confiáveis para o cuidado do seu pet</h1>
-              <p className="hero__subtitle">
-                Solicite corridas, encontre serviços e compartilhe indicações com vizinhos em poucos toques.
-              </p>
-            </div>
-          </section>
-        )}
         <Outlet />
       </main>
       {!isAuthFlow && <BottomNav />}
