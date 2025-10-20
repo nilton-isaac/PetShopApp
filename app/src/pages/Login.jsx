@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button.jsx';
-import Card from '../components/Card.jsx';
 import InputField from '../components/InputField.jsx';
 
 export default function Login() {
@@ -13,23 +12,48 @@ export default function Login() {
   };
 
   return (
-    <Card as="form" onSubmit={handleSubmit} className="section">
-      <div>
-        <h2 className="section-title">Que bom te ver de volta</h2>
-        <p className="hero__subtitle">Acesse sua conta para solicitar uma corrida ou acompanhar serviços.</p>
-      </div>
-      <InputField id="email" label="E-mail" inputProps={{ type: 'email', required: true, placeholder: 'nome@exemplo.com' }} />
-      <InputField
-        id="senha"
-        label="Senha"
-        inputProps={{ type: 'password', required: true, minLength: 6, placeholder: 'Sua senha' }}
-      />
-      <Button type="submit" variant="primary">
-        Entrar
-      </Button>
-      <Button to="/register" variant="ghost">
-        Quero criar uma conta
-      </Button>
-    </Card>
+    <section className="auth-page">
+      <form className="auth-card" onSubmit={handleSubmit}>
+        <header className="auth-header">
+          <span aria-hidden="true" className="auth-icon material-symbols-outlined">
+            pets
+          </span>
+          <div className="auth-header__text">
+            <h1>Que bom te ver de volta</h1>
+            <p>Acesse sua conta para solicitar uma corrida ou acompanhar serviços.</p>
+          </div>
+        </header>
+        <div className="auth-fields">
+          <InputField
+            id="email"
+            label="E-mail"
+            icon={<span className="material-symbols-outlined">alternate_email</span>}
+            inputProps={{ type: 'email', required: true, placeholder: 'nome@exemplo.com' }}
+          />
+          <InputField
+            id="senha"
+            label="Senha"
+            type="password"
+            showPasswordToggle
+            icon={<span className="material-symbols-outlined">lock</span>}
+            inputProps={{ required: true, minLength: 6, placeholder: 'Sua senha' }}
+          />
+        </div>
+        <Button type="submit" variant="primary" fullWidth>
+          Entrar
+        </Button>
+        <footer className="auth-footer">
+          <button type="button" className="auth-link-button">
+            Esqueci minha senha?
+          </button>
+          <div className="auth-footer__cta">
+            <span>É novo por aqui?</span>
+            <Button to="/register" variant="ghost" size="small">
+              Criar conta
+            </Button>
+          </div>
+        </footer>
+      </form>
+    </section>
   );
 }
