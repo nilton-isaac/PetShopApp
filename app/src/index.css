@@ -100,6 +100,8 @@ select {
 @media (max-width: 520px) {
   #root {
     padding: 0;
+    justify-content: flex-start;
+    align-items: stretch;
   }
 
   .app-shell {
@@ -424,6 +426,74 @@ select {
 
 .welcome__refresh:hover {
   color: var(--color-primary);
+}
+
+@media (max-width: 520px) {
+  .welcome {
+    padding-block: clamp(var(--space-lg), 14vw, var(--space-2xl));
+  }
+
+  .welcome__card {
+    gap: clamp(var(--space-lg), 8vw, var(--space-2xl));
+    padding: clamp(var(--space-lg), 9vw, var(--space-2xl));
+    border-radius: clamp(var(--radius-md), 12vw, 42px);
+  }
+
+  .welcome__figure {
+    width: min(220px, 78vw);
+    border-radius: clamp(18px, 12vw, 36px);
+  }
+
+  .welcome__badge {
+    font-size: var(--font-size-2xs);
+    padding: 6px 12px;
+    letter-spacing: 0.06em;
+  }
+
+  .welcome__title {
+    font-size: clamp(1.9rem, 1.65rem + 2vw, 2.4rem);
+    text-wrap: balance;
+  }
+
+  .welcome__description {
+    font-size: clamp(var(--font-size-md), 0.98rem + 0.6vw, 1.1rem);
+    max-width: none;
+  }
+
+  .welcome__highlights {
+    gap: clamp(var(--space-sm), 6vw, var(--space-lg));
+    margin: var(--space-sm) 0;
+  }
+
+  .welcome__highlight {
+    gap: var(--space-sm);
+    align-items: center;
+  }
+
+  .welcome__highlight .material-symbols-rounded {
+    font-size: 24px;
+    padding: 8px;
+    border-radius: 14px;
+  }
+
+  .welcome__highlight-title {
+    font-size: clamp(var(--font-size-md), 0.95rem + 0.4vw, 1.1rem);
+  }
+
+  .welcome__actions {
+    margin-top: var(--space-md);
+    gap: var(--space-sm);
+  }
+
+  .welcome__footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
+
+  .welcome__refresh {
+    margin-left: 0;
+  }
 }
 
 @media (min-width: 640px) {
