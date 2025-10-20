@@ -93,6 +93,26 @@ export default function MapView({
   const [hasTileError, setHasTileError] = useState(false);
   const [reloadToken, setReloadToken] = useState(0);
 
+  // Garante que o Leaflet recalcule o tamanho do container após montagem e em redimensionamentos
+  useEffect(() => {
+    if (!mapInstance) return;
+
+    const invalidate = () => {
+      try {
+        mapInstance.invalidateSize({ animate: false });
+      } catch {}
+    };
+
+    requestAnimationFrame(invalidate);
+    const timeoutId = setTimeout(invalidate, 120);
+
+    window.addEventListener('resize', invalidate);
+    return () => {
+      window.removeEventListener('resize', invalidate);
+      clearTimeout(timeoutId);
+    };
+  }, [mapInstance]);
+
   const overlays = useMemo(() => {
     if (typeof children === 'function') {
       return children(mapInstance);
@@ -124,6 +144,7 @@ export default function MapView({
         zoom={zoom}
         zoomControl={false}
         className="map-view__container"
+        style={{ width: '100%', height: '100%' }}
         whenCreated={handleMapReady}
         preferCanvas
       >

@@ -79,31 +79,49 @@ function filterByQuery(services, query) {
   });
 }
 
-export async function fetchNearbyServices({ query = '', coords, signal } = {}) {
-  // Placeholder para futura integração com APIs como Mapbox Geocoding ou Google Places.
-  // Quando disponível, utilize os parâmetros `query` e `coords` para montar a requisição real.
-  await new Promise((resolve, reject) => {
-    const timeout = setTimeout(resolve, DEFAULT_DELAY);
+export async function fetchNearbyServices({ query = '', coords = [-23.561684, -46.655981], signal } = {}) {
+  const API_BASE = 'http://localhost:3001';
+  const toRad = (deg) => (deg * Math.PI) / 180;
+  const kmBetween = (a, b) => {
+    const [lat1, lon1] = a;
+    const [lat2, lon2] = b;
+    const R = 6371; // km
+    const dLat = toRad(lat2 - lat1);
+    const dLon = toRad(lon2 - lon1);
+    const c1 = Math.cos(toRad(lat1));
+    const c2 = Math.cos(toRad(lat2));
+    const h = Math.sin(dLat / 2) ** 2 + c1 * c2 * Math.sin(dLon / 2) ** 2;
+    return 2 * R * Math.atan2(Math.sqrt(h), Math.sqrt(1 - h));
+  };
 
-    const handleAbort = () => {
-      clearTimeout(timeout);
-      reject(new DOMException('Operação cancelada', 'AbortError'));
-    };
+  try {
+    const res = await fetch(`${API_BASE}/locations`, { signal });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const rows = await res.json();
 
-    signal?.addEventListener('abort', handleAbort, { once: true });
-  });
+    let services = rows.map((row) => ({
+      id: row.id,
+      name: row.title ?? 'Serviço',
+      category: row.category ?? 'vet',
+      description: row.description ?? '',
+      address: row.address ?? '',
+      position: [row.latitude, row.longitude],
+      distance: kmBetween(coords, [row.latitude, row.longitude]),
+      supportedPets: ['Cachorro', 'Gato'],
+      tags: [],
+      rating: 4.6,
+    }));
 
-  if (signal?.aborted) {
-    throw new DOMException('Operação cancelada', 'AbortError');
+    if (query) {
+      services = filterByQuery(services, query);
+    }
+
+    return services;
+  } catch (err) {
+    if (err?.name === 'AbortError') throw err;
+    // Fallback para dados simulados quando o backend não estiver acessível.
+    const baseData = filterByQuery(SIMULATED_SERVICES, query);
+    return baseData.map((service) => ({ ...service }));
   }
-
-  const baseData = filterByQuery(SIMULATED_SERVICES, query);
-
-  return baseData.map((service) => ({
-    ...service,
-    // Enquanto a API real não estiver conectada, mantemos distâncias simuladas.
-    // Com dados reais, utilize a coordenada `coords` para calcular distâncias reais.
-    distance: service.distance,
-  }));
 }
 

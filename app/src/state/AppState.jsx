@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useMemo, useState } from 'react';
+import React, { createContext, useContext, useMemo, useState, useEffect } from 'react';
 
 const AppStateContext = createContext();
 
@@ -36,7 +36,22 @@ const initialState = {
 };
 
 export function AppStateProvider({ children }) {
-  const [state, setState] = useState(initialState);
+  const [state, setState] = useState(() => {
+    try {
+      const raw = localStorage.getItem('pets');
+      const parsed = raw ? JSON.parse(raw) : null;
+      if (Array.isArray(parsed)) {
+        return { ...initialState, pets: parsed };
+      }
+    } catch {}
+    return initialState;
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('pets', JSON.stringify(state.pets));
+    } catch {}
+  }, [state.pets]);
 
   const addPet = (pet) => {
     setState((prev) => ({

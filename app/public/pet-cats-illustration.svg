@@ -1,0 +1,66 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="240" height="240" rx="24" fill="#E2C0A1"/>
+  
+  <!-- Gato adulto -->
+  <path d="M100 80C80 80 70 100 70 120C70 140 80 160 100 160C120 160 130 140 130 120C130 100 120 80 100 80Z" fill="#231F20"/>
+  <path d="M100 90C85 90 80 105 80 120C80 135 85 150 100 150C115 150 120 135 120 120C120 105 115 90 100 90Z" fill="#231F20"/>
+  
+  <!-- Orelhas do gato adulto -->
+  <path d="M85 85L75 70" stroke="#231F20" stroke-width="8" stroke-linecap="round"/>
+  <path d="M115 85L125 70" stroke="#231F20" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Rosto do gato adulto -->
+  <path d="M90 110C87 110 85 112 85 115C85 118 87 120 90 120C93 120 95 118 95 115C95 112 93 110 90 110Z" fill="white"/>
+  <path d="M110 110C107 110 105 112 105 115C105 118 107 120 110 120C113 120 115 118 115 115C115 112 113 110 110 110Z" fill="white"/>
+  
+  <!-- Nariz e boca do gato adulto -->
+  <path d="M100 125L100 130" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <path d="M100 130L95 135" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <path d="M100 130L105 135" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="100" cy="125" r="3" fill="#FFC0CB"/>
+  
+  <!-- Bigodes do gato adulto -->
+  <path d="M90 130L70 125" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M90 132L70 132" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M90 134L70 139" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+  
+  <path d="M110 130L130 125" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M110 132L130 132" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M110 134L130 139" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+  
+  <!-- Filhote de gato -->
+  <path d="M150 130C140 130 135 140 135 150C135 160 140 170 150 170C160 170 165 160 165 150C165 140 160 130 150 130Z" fill="#D2B48C"/>
+  
+  <!-- Orelhas do filhote -->
+  <path d="M143 135L138 125" stroke="#D2B48C" stroke-width="5" stroke-linecap="round"/>
+  <path d="M157 135L162 125" stroke="#D2B48C" stroke-width="5" stroke-linecap="round"/>
+  
+  <!-- Rosto do filhote -->
+  <path d="M145 145C143 145 142 146 142 148C142 150 143 151 145 151C147 151 148 150 148 148C148 146 147 145 145 145Z" fill="#231F20"/>
+  <path d="M155 145C153 145 152 146 152 148C152 150 153 151 155 151C157 151 158 150 158 148C158 146 157 145 155 145Z" fill="#231F20"/>
+  
+  <!-- Nariz e boca do filhote -->
+  <path d="M150 153L150 156" stroke="#231F20" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M150 156L147 158" stroke="#231F20" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M150 156L153 158" stroke="#231F20" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="150" cy="153" r="2" fill="#FFC0CB"/>
+  
+  <!-- Bigodes do filhote -->
+  <path d="M145 155L135 153" stroke="#231F20" stroke-width="1" stroke-linecap="round"/>
+  <path d="M145 156L135 156" stroke="#231F20" stroke-width="1" stroke-linecap="round"/>
+  <path d="M145 157L135 159" stroke="#231F20" stroke-width="1" stroke-linecap="round"/>
+  
+  <path d="M155 155L165 153" stroke="#231F20" stroke-width="1" stroke-linecap="round"/>
+  <path d="M155 156L165 156" stroke="#231F20" stroke-width="1" stroke-linecap="round"/>
+  <path d="M155 157L165 159" stroke="#231F20" stroke-width="1" stroke-linecap="round"/>
+  
+  <!-- Listras do filhote -->
+  <path d="M145 135L150 140L155 135" stroke="#B76E2D" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M140 140L150 150L160 140" stroke="#B76E2D" stroke-width="1.5" stroke-linecap="round"/>
+  
+  <!-- Corpo do filhote -->
+  <path d="M150 170C150 170 145 175 145 180C145 185 150 190 150 190" stroke="#D2B48C" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Cauda do filhote -->
+  <path d="M150 180C150 180 155 185 160 185C165 185 170 180 170 180" stroke="#D2B48C" stroke-width="4" stroke-linecap="round"/>
+</svg>

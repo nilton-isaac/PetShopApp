@@ -37,7 +37,7 @@ export default function RegisterUser() {
 
   return (
     <section className="auth-page">
-      <form className="auth-card" onSubmit={handleSubmit} noValidate>
+      <form onSubmit={handleSubmit} noValidate>
         <header className="auth-header">
           <span aria-hidden="true" className="auth-icon material-symbols-outlined">
             badge

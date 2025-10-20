@@ -1,33 +1,80 @@
 # PetShopApp
 
-Projeto da faculdade para criar um app simples de pet shop que permita o usuário cadastrar seus dados e os do pet, e consiga entrar em contato com um motorista vizinho para levar seu pet para ter um atendimento. Principalmente em casos onde ele não tempo para levar o pet, e o pet seria apenas um pet de visita.
+Projeto de faculdade: app de pet shop com foco em cadastro de pets, visualização de serviços próximos no mapa e navegação simples.
+
+## O que está incluso (MVP simplificado)
+- Cadastro de pets (lista e formulário) com persistência em `localStorage`.
+- Mapa com serviços próximos: usa API local opcional, com fallback para dados simulados.
+- Navegação entre telas: `Home`, `Meus Pets`, `Serviços`, `Perfil`.
+- Layout responsivo pensado para celular e desktop.
 
 ## Como executar o frontend
-
 1. Instale as dependências (apenas na primeira vez):
-
    ```bash
    cd app
    npm install
    ```
-
 2. Suba o servidor de desenvolvimento:
-
    ```bash
    npm run dev
    ```
-
 3. Abra o endereço exibido no terminal (geralmente `http://localhost:5173`).
 
-Caso o `npm install` falhe por não conseguir baixar o pacote `@vitejs/plugin-react`, não se preocupe: a configuração atual utiliza apenas dependências públicas sem escopo especial, evitando esse bloqueio.
+Observação: o app funciona sem backend. O mapa exibe dados simulados se a API opcional não estiver rodando.
 
-## Fluxo inicial mobile-first
+## Backend opcional (API de locais)
+Se quiser ver locais reais (seed) no mapa:
+1. Instale as dependências:
+   ```bash
+   cd server
+   npm install
+   ```
+2. Inicie a API:
+   ```bash
+   npm run dev
+   ```
+3. Popule com dados de exemplo (em outro terminal):
+   ```bash
+   # PowerShell
+   Invoke-RestMethod -Uri http://localhost:3001/seed -Method Post
+   ```
+4. A Home consumirá `http://localhost:3001/locations`. Se a API estiver offline, o app cai para dados simulados automaticamente.
 
-O frontend foi reestruturado para seguir um fluxo pensado para telas de celular, inspirado nos esboços presentes na pasta `Sketch/`:
+## Entrega (sem ZIP)
+A professora não gosta de arquivos zipados. Entregue assim:
+- Publique no GitHub e envie apenas o link do repositório.
+- Opcional: inclua um vídeo curto mostrando a navegação.
 
-- **Boas-vindas / Onboarding** — apresenta a proposta do app com mensagens randômicas, guia de passos e botões para criação de conta ou login.
-- **Cadastro de tutor e pets** — formulários responsivos para coletar dados básicos, preferências e observações relevantes para motoristas.
-- **Home (Mapa)** — cartão com chips dos pets cadastrados, lista de agendamentos e serviços próximos.
-- **Navegação inferior** — abas para `Mapa`, `Meus Pets`, `Serviços` e `Perfil`, facilitando o uso por toque.
+Passo a passo (resumo):
+1. Crie o repositório no GitHub (nome sugerido: `PetShopApp`).
+2. No projeto local, inicialize e suba:
+   ```bash
+   # dentro de c:\Users\isaac\OneDrive\Área de Trabalho\Faculdade\PetShopApp
+   git init
+   git add .
+   git commit -m "Entrega do projeto de faculdade"
+   git branch -M main
+   git remote add origin https://github.com/<seu-usuario>/PetShopApp.git
+   git push -u origin main
+   ```
+3. Entregue o link: `https://github.com/<seu-usuario>/PetShopApp`.
 
-Os componentes compartilham tokens de cores, tipografia e espaçamento definidos em `app/src/styles/tokens.css`, priorizando uma experiência consistente em smartphones.
+Dica: se quiser um link acessível do app sem pedir para instalar nada, use `npm run build` dentro de `app` e publique a pasta `app/dist` no GitHub Pages. (Opcional, não necessário para a avaliação se o repositório estiver claro.)
+
+## Estrutura
+```
+PetShopApp/
+├── app/           # Frontend React + Vite
+│   └── src/       # Páginas, componentes e estado (localStorage nos pets)
+└── server/        # Backend opcional com Express + sql.js
+```
+
+## Critérios atendidos
+- Funcionalidades essenciais: cadastro/lista de pets; categorias de serviços; mapa de pet shops.
+- Layout responsivo: navegação inferior e páginas otimizadas para celular.
+- Ambiente simples: Node + Vite; Expo/RN não é necessário para esta entrega.
+
+## Observações
+- Sem autenticação/pagamento para reduzir complexidade.
+- O backend é opcional e não impede o uso do app.
+- Qualquer dúvida, ver `app/src/state/AppState.jsx` (persistência de pets) e `app/src/services/locations.js` (dados do mapa).

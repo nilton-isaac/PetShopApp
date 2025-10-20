@@ -1,13 +1,15 @@
 import React from 'react';
 import Button from '../components/Button.jsx';
-import illustration from '../assets/welcome-illustration.svg';
 
 export default function Welcome() {
   return (
-    <section className="welcome" aria-labelledby="welcome-title">
-      <div className="welcome__card">
+    <>
         <div className="welcome__image">
-          <img src={illustration} alt="Cachorro e gato sentados lado a lado" loading="lazy" />
+          <img 
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGkdzLDz1LhwQA0rf62ul1x0uen1BJ2yKs1Xy3dE3ib1Trd0B-zwD17ZwEpwPUT3igPVjrCcXlt6GUZnH5nlRILcPEVBthklavk5crpZHmCK3e9X56jZFPbHm0reT7eoEzuFsW3btqbdZU2_yCxYecQpl-essFKC9hBar-2SFf5Rt173MmYqJbyuz2LHoh6pTigovD6nmj34I3rZzWmQ1gDaILDg6pyPL7DlqXzyRC34f55aTxwGyDzk-k0JFqTtTATwXHpadjpAsw"
+            alt="Gato adulto e filhote sentados lado a lado" 
+            loading="lazy" 
+          />
         </div>
 
         <div className="welcome__content">
@@ -27,7 +29,6 @@ export default function Welcome() {
             Já tenho uma conta. Entrar
           </Button>
         </div>
-      </div>
-    </section>
+    </>
   );
 }
