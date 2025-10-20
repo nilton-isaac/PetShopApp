@@ -19,14 +19,16 @@ export default function Login() {
             pets
           </span>
           <div className="auth-header__text">
-            <h1>Que bom te ver de volta</h1>
-            <p>Acesse sua conta para solicitar uma corrida ou acompanhar serviços.</p>
+            <h1>Entre na sua conta</h1>
+            <p>
+              Conecte-se para encontrar serviços confiáveis e cuidar do seu pet com praticidade.
+            </p>
           </div>
         </header>
         <div className="auth-fields">
           <InputField
             id="email"
-            label="E-mail"
+            label="Email"
             icon={<span className="material-symbols-outlined">alternate_email</span>}
             inputProps={{ type: 'email', required: true, placeholder: 'nome@exemplo.com' }}
           />
@@ -49,7 +51,7 @@ export default function Login() {
           <div className="auth-footer__cta">
             <span>É novo por aqui?</span>
             <Button to="/register" variant="ghost" size="small">
-              Criar conta
+              Criar Conta
             </Button>
           </div>
         </footer>
