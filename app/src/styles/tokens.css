@@ -2,6 +2,9 @@
   color-scheme: light dark;
   --color-primary: #d9773a;
   --color-primary-strong: #a95524;
+  --color-category-vet: #2a9d8f;
+  --color-category-grooming: #f4a261;
+  --color-category-hotel: #e76f51;
   --color-surface: #fff5ed;
   --color-surface-tonal: #f7d8c2;
   --color-background: #fbe9dd;
@@ -45,6 +48,9 @@
     --color-border: rgba(248, 220, 200, 0.18);
     --color-text: #f8eee5;
     --color-text-subtle: rgba(248, 238, 229, 0.7);
+    --color-category-vet: #2a9d8f;
+    --color-category-grooming: #f4a261;
+    --color-category-hotel: #f28482;
     --shadow-soft: 0 10px 28px rgba(0, 0, 0, 0.5);
     --shadow-raised: 0 18px 40px rgba(0, 0, 0, 0.55);
   }
