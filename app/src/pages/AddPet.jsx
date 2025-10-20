@@ -64,8 +64,10 @@ export default function AddPet() {
   return (
     <Card as="form" className="section pet-form" onSubmit={handleSubmit}>
       <div className="pet-form__header">
-        <h2 className="section-title">Cadastrar pet</h2>
-        <p className="hero__subtitle">Inclua informações que ajudem motoristas e parceiros a cuidarem melhor dele.</p>
+        <h2 className="section-title">Adicionar novo pet</h2>
+        <p className="hero__subtitle">
+          Complete os detalhes para que os parceiros saibam exatamente como acolher o seu melhor amigo.
+        </p>
       </div>
 
       <PhotoPicker
@@ -78,8 +80,13 @@ export default function AddPet() {
 
       <InputField
         id="pet-name"
-        label="Nome"
-        inputProps={{ value: formData.name, onChange: handleChange('name'), required: true, placeholder: 'Ex: Lola' }}
+        label="Nome do Pet"
+        inputProps={{
+          value: formData.name,
+          onChange: handleChange('name'),
+          required: true,
+          placeholder: 'Ex: Luna',
+        }}
       />
 
       <fieldset className="chip-fieldset" aria-labelledby="pet-type-label">
@@ -128,7 +135,7 @@ export default function AddPet() {
         />
         <InputField
           id="pet-age"
-          label="Idade (anos)"
+          label="Idade"
           type="number"
           inputProps={{
             value: formData.age,
@@ -143,9 +150,9 @@ export default function AddPet() {
 
       <InputField
         id="pet-notes"
-        label="Preferências e observações"
+        label="Observações"
         multiline
-        hint="Ex.: gosta de janelas abertas, usa peitoral tamanho M, levar brinquedo favorito."
+        hint="Ex.: prefere água fresca, usa peitoral tamanho M, levar brinquedo favorito."
         inputProps={{
           value: formData.notes,
           onChange: handleChange('notes'),

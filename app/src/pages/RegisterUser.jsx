@@ -43,14 +43,16 @@ export default function RegisterUser() {
             badge
           </span>
           <div className="auth-header__text">
-            <h1>Crie sua conta</h1>
-            <p>Informe seus dados para personalizar recomendações e agilizar solicitações.</p>
+            <h1>Cadastre-se</h1>
+            <p>
+              Compartilhe alguns dados para receber recomendações sob medida para o seu pet.
+            </p>
           </div>
         </header>
         <div className="auth-fields">
           <InputField
             id="nome"
-            label="Nome"
+            label="Nome Completo"
             icon={<span className="material-symbols-outlined">person</span>}
             inputProps={{
               value: formData.name,
@@ -61,7 +63,7 @@ export default function RegisterUser() {
           />
           <InputField
             id="email"
-            label="E-mail"
+            label="Email"
             icon={<span className="material-symbols-outlined">alternate_email</span>}
             inputProps={{
               value: formData.email,
@@ -99,7 +101,7 @@ export default function RegisterUser() {
           />
           <InputField
             id="confirmar-senha"
-            label="Confirmar senha"
+            label="Confirmar Senha"
             type="password"
             showPasswordToggle
             icon={<span className="material-symbols-outlined">lock_reset</span>}
@@ -124,7 +126,7 @@ export default function RegisterUser() {
           <div className="auth-footer__cta">
             <span>Já tem uma conta?</span>
             <Button to="/login" variant="ghost" size="small">
-              Entrar
+              Já tenho uma conta
             </Button>
           </div>
         </footer>

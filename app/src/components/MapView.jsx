@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -6,6 +6,7 @@ import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 import { getServiceIcon, getServiceLabel } from './mapIcons.js';
+import Button from './Button.jsx';
 
 // Corrige os caminhos dos ícones padrão do Leaflet em bundlers como o Vite.
 delete L.Icon.Default.prototype._getIconUrl;
@@ -89,6 +90,8 @@ export default function MapView({
   children,
 }) {
   const [mapInstance, setMapInstance] = useState(null);
+  const [hasTileError, setHasTileError] = useState(false);
+  const [reloadToken, setReloadToken] = useState(0);
 
   const overlays = useMemo(() => {
     if (typeof children === 'function') {
@@ -102,9 +105,21 @@ export default function MapView({
     onReady?.(map);
   };
 
+  const handleTileError = useCallback(() => {
+    setHasTileError(true);
+  }, []);
+
+  const handleRetry = () => {
+    setHasTileError(false);
+    setMapInstance(null);
+    onReady?.(null);
+    setReloadToken((token) => token + 1);
+  };
+
   return (
     <div className="map-view">
       <MapContainer
+        key={reloadToken}
         center={center}
         zoom={zoom}
         zoomControl={false}
@@ -115,6 +130,7 @@ export default function MapView({
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contribuidores'
+          eventHandlers={{ tileerror: handleTileError }}
         />
         {center && <MapRecenter center={center} />}
         {markers.map((marker) => (
@@ -126,6 +142,23 @@ export default function MapView({
           />
         ))}
       </MapContainer>
+      {hasTileError ? (
+        <div className="map-view__fallback" role="alert" aria-live="assertive">
+          <div className="map-view__fallback-card">
+            <span className="material-symbols-outlined" aria-hidden="true">
+              map_off
+            </span>
+            <h2>Mapa temporariamente indisponível</h2>
+            <p>
+              Não conseguimos carregar os tiles do mapa agora. Verifique sua conexão ou tente
+              novamente em instantes.
+            </p>
+            <Button onClick={handleRetry} variant="primary">
+              Tentar novamente
+            </Button>
+          </div>
+        </div>
+      ) : null}
       {overlays ? <div className="map-view__overlays">{overlays}</div> : null}
     </div>
   );
