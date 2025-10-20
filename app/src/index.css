@@ -40,6 +40,19 @@ select {
 }
 
 .material-symbols-outlined {
+  display: inline-block;
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   font-variation-settings:
     'FILL' 0,
     'wght' 400,
