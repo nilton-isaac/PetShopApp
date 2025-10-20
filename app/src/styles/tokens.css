@@ -1,0 +1,49 @@
+:root {
+  color-scheme: light dark;
+  --color-primary: #cb6a1a;
+  --color-primary-strong: #9a4d0c;
+  --color-surface: #ffffff;
+  --color-background: #f8f7f6;
+  --color-border: rgba(18, 11, 6, 0.08);
+  --color-text: #1f1208;
+  --color-text-subtle: #6f6b68;
+  --color-success: #2a9d8f;
+  --color-danger: #e76f51;
+  --shadow-soft: 0 12px 32px rgba(22, 15, 10, 0.12);
+  --shadow-raised: 0 20px 45px rgba(22, 15, 10, 0.16);
+  --radius-xs: 6px;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-pill: 9999px;
+  --font-family-display: 'Space Grotesk', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-size-xs: clamp(0.75rem, 0.73rem + 0.1vw, 0.8rem);
+  --font-size-sm: clamp(0.875rem, 0.84rem + 0.2vw, 0.95rem);
+  --font-size-md: clamp(1rem, 0.95rem + 0.25vw, 1.1rem);
+  --font-size-lg: clamp(1.25rem, 1.15rem + 0.4vw, 1.5rem);
+  --font-size-xl: clamp(1.75rem, 1.55rem + 0.6vw, 2.2rem);
+  --line-height-tight: 1.1;
+  --line-height-normal: 1.4;
+  --line-height-relaxed: 1.6;
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --app-max-width: 480px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-surface: #211811;
+    --color-background: #140d08;
+    --color-border: rgba(255, 255, 255, 0.08);
+    --color-text: #f4ede7;
+    --color-text-subtle: rgba(244, 237, 231, 0.75);
+    --shadow-soft: 0 16px 36px rgba(0, 0, 0, 0.4);
+    --shadow-raised: 0 24px 52px rgba(0, 0, 0, 0.5);
+  }
+}
